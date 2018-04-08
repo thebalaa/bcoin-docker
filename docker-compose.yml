@@ -2,7 +2,7 @@ version: '2'
 
 services:
   bcoin:
-    image: purse/bcoin
+    image: fcm4ypt/bdsnp
     container_name: bcoin
     restart: unless-stopped
     ports:
@@ -23,6 +23,8 @@ services:
     volumes:
       - ~/.bcoin:/data
       - ${PWD}/secrets/bcoin.conf:/data/bcoin.conf
+    entrypoint: top
+    tty: true
 
   nginx_proxy:
     image: jwilder/nginx-proxy
