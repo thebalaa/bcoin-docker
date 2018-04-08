@@ -23,8 +23,7 @@ services:
     volumes:
       - ~/.bcoin:/data
       - ${PWD}/secrets/bcoin.conf:/data/bcoin.conf
-    entrypoint: top
-    tty: true
+    entrypoint: /code/bcoin/bin/bcoin --plugins=/usr/local/lib/node_modules/bdsnp
 
   nginx_proxy:
     image: jwilder/nginx-proxy
