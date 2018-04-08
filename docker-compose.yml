@@ -23,7 +23,8 @@ services:
     volumes:
       - ~/.bcoin:/data
       - ${PWD}/secrets/bcoin.conf:/data/bcoin.conf
-    entrypoint: /code/bcoin/bin/bcoin --plugins=/usr/local/lib/node_modules/bdsnp
+      - $DSNP_PATH:/code/dsnp
+    entrypoint: /code/bcoin/bin/bcoin --plugins=/code/dsnp/lib/bDSNP.js
 
   nginx_proxy:
     image: jwilder/nginx-proxy
